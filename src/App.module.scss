@@ -1,0 +1,38 @@
+.home {
+    padding: 0.75rem 1rem;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--color-background);
+}
+
+.loading {
+    position: absolute;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-background);
+}
+
+@media screen and (min-width: 512px) {
+    #root {
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+        background-color: var(--color-separator);
+    }
+
+    .loading {
+        background-color: var(--color-separator);
+    }
+
+    .app {
+        width: 26rem;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        box-shadow: var(--shadow-app);
+    }
+}

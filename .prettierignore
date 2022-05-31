@@ -1,0 +1,11 @@
+# Ignore artifacts:
+
+build
+coverage
+.vercel
+.next
+dist
+
+# Ignore all HTML files:
+
+\*.html

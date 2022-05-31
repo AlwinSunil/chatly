@@ -1,0 +1,87 @@
+.profile {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    gap: 1.25rem;
+}
+
+.dp {
+    display: flex;
+    width: 3.75rem;
+    height: 3.75rem;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: var(--shadow-profile);
+
+    & img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+
+    & h3 {
+        font-size: 1.4rem;
+    }
+
+    & p {
+        padding: 0px;
+        opacity: 0.8;
+        font-size: 0.95rem;
+    }
+}
+
+.settings {
+    padding: 0.75rem 0rem;
+    border-bottom: 2px solid var(--color-separator);
+
+    &First {
+        padding: 0px;
+        padding-bottom: 0.75rem;
+    }
+}
+
+.settingsBtn {
+    display: block;
+    padding: 0.6rem 1.5rem;
+
+    & p {
+        font-weight: 400;
+    }
+}
+
+.settingsBtnLogout p {
+    color: var(--color-err);
+    font-weight: 600;
+}
+
+.settingsBtnDisable {
+    &:hover {
+        background: var(--color-background) !important;
+        cursor: default !important;
+    }
+
+    &:active {
+        transform: scale(1) !important;
+        opacity: 1 !important;
+    }
+}
+
+.version {
+    padding: 0px 0px 0.2rem 0px;
+    opacity: 0.8;
+    font-size: 0.8rem;
+}
+
+.versionTitle {
+    padding: 0.2rem 0px 0.2rem 0px;
+}

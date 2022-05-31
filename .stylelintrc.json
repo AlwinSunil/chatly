@@ -1,0 +1,5 @@
+{
+    "customSyntax": "postcss-scss",
+    "plugins": ["stylelint-order"],
+    "extends": "stylelint-config-property-sort-order-smacss"
+}

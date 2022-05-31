@@ -1,0 +1,28 @@
+.newmessage {
+    display: flex;
+    position: absolute;
+    z-index: 100;
+    right: 4.75%;
+    bottom: 3%;
+    padding: 1rem;
+    transition: transform 0.2s ease-in-out, opacity 0.1s ease-in-out !important;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    box-shadow: var(--shadow-btn);
+
+    & img {
+        width: 1.7rem;
+        height: 1.7rem;
+        margin: auto;
+    }
+
+    &:hover {
+        transform: scale(1.02) !important;
+        cursor: pointer;
+    }
+
+    &:active {
+        transform: scale(1) !important;
+        opacity: 0.9;
+    }
+}

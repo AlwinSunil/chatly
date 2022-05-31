@@ -1,0 +1,29 @@
+{
+    "tabWidth": 4,
+    "singleQuote": false,
+    "semi": false,
+    "bracketSameLine": false,
+    "arrowParens": "always",
+    "importOrder": [
+        "react",
+        "axios",
+        "^firebase/(.*)$",
+        "^../../context/(.*)$",
+        "^../context/(.*)$",
+        "^./context/(.*)$",
+        "^../../components/(.*)$",
+        "^../components/(.*)$",
+        "^./components/(.*)$",
+        "^./routes/(.*)$",
+        "^@mui/(.*)$",
+        "^../../firebase",
+        "^../firebase",
+        "^./firebase",
+        "^../pages/(.*)$",
+        "^./pages/(.*)$",
+        "^[../]",
+        "^[./]"
+    ],
+    "importOrderSeparation": false,
+    "importOrderSortSpecifiers": true
+}

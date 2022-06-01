@@ -1,4 +1,64 @@
+.querycall {
+    display: flex;
+    align-items: center;
+    margin: 1rem 1.5rem;
+    margin-top: auto;
+    padding: 0.5rem 1rem;
+    border: 1.5px solid var(--color-element-hover);
+    border-radius: 0.2rem;
+    background-color: var(--color-background);
+    font-size: 0.7rem;
+    text-align: end;
+
+    &:hover {
+        background-color: var(--color-element-bg);
+        cursor: pointer;
+    }
+
+    & img {
+        width: 1.25rem;
+        margin-right: 0.4rem;
+    }
+
+    & p {
+        margin: auto;
+        padding: 0px;
+        font-size: 0.95rem;
+    }
+
+    & strong {
+        font-weight: 500;
+    }
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 35rem;
+    margin: auto;
+    padding: 3rem 2rem 4rem 2rem;
+    border-radius: 0.2rem;
+    background-color: var(--color-background);
+    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px,
+        rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+    text-align: center;
+
+    & img {
+        width: 2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    & p {
+        padding: 0.35rem 0px;
+    }
+}
+
 .profile {
+    display: flex;
+    flex-direction: column;
     height: 100%;
     overflow-y: scroll;
 }
@@ -41,8 +101,8 @@
 }
 
 .settings {
-    padding: 0.75rem 0rem;
-    border-bottom: 2px solid var(--color-separator);
+    padding: 0.5rem 0rem;
+    border-bottom: 2px solid var(--color-active);
 
     &First {
         padding: 0px;

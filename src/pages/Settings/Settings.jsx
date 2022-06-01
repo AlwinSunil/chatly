@@ -1,12 +1,18 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { getAuth, signOut } from "firebase/auth"
 import { UserProfileContext } from "../../context/UserProfileContext"
 import Navigation from "../../components/Navigation"
+import Modal from "@mui/material/Modal"
 import styles from "./Settings.module.scss"
 
 function Profile() {
     const [userProfileData] = useContext(UserProfileContext)
+
+    const [open, setOpen] = useState(false)
+
+    const handleOpen = () => setOpen(true)
+    const handleClose = () => setOpen(false)
 
     // Sign out user function
     const signOutUser = () => {
@@ -68,7 +74,29 @@ function Profile() {
                         <p>Install App</p>
                     </div>
                 </div>
+                <div className={styles.querycall} onClick={handleOpen}>
+                    <img src="/assets/icons/info.svg" alt="" />
+                    <p>Messages are not encrypted.</p>
+                </div>
             </div>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                sx={{
+                    height: "100vh",
+                    display: "flex",
+                }}
+            >
+                <div className={styles.modal}>
+                    <img src="/assets/icons/info.svg" alt="" />
+                    <p>
+                        This app is part of my web development portfolio. Chatly
+                        is currently in beta and messages are not encrypted.
+                    </p>
+                </div>
+            </Modal>
         </>
     )
 }

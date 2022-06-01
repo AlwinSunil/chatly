@@ -2,6 +2,14 @@
 import { getAnalytics } from "firebase/analytics"
 import { initializeApp } from "firebase/app"
 import {
+    getDatabase,
+    onDisconnect,
+    onValue,
+    ref,
+    serverTimestamp,
+    set,
+} from "firebase/database"
+import {
     arrayUnion,
     doc,
     getFirestore,
@@ -9,6 +17,7 @@ import {
     updateDoc,
 } from "firebase/firestore"
 
+// Configuration
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_API_KEY,
     authDomain: import.meta.env.VITE_AUTH_DOMAIN,
@@ -19,22 +28,51 @@ const firebaseConfig = {
     measurementId: import.meta.env.VITE_MEASUREMENT_ID,
 }
 
-// Initialize Firebase
+// Initialize firebase
 const app = initializeApp(firebaseConfig)
 getAnalytics(app)
 
-export const db = getFirestore(app)
+export const realtimeDB = getDatabase(app)
+export const firestoreDB = getFirestore(app)
 
-// Handle Sending Message
+// Handle sending message
 export async function sendMessage(data, sessionId) {
-    const docRef = doc(db, "sessions", sessionId)
+    const docRef = doc(firestoreDB, "sessions", sessionId)
     await updateDoc(docRef, {
         chat: arrayUnion(data),
     })
 }
 
+// Retrieving user sessions
 export async function getUserSessions(uid) {
     onSnapshot(doc(db, "users", uid), (doc) => {
         return doc.data()
+    })
+}
+
+// Updating user status
+export function updateUserStatus(uid) {
+    var userStatusDatabaseRef = ref(realtimeDB, "/status/" + uid)
+
+    var isOfflineForDatabase = {
+        state: "offline",
+        last_changed: serverTimestamp(),
+    }
+
+    var isOnlineForDatabase = {
+        state: "online",
+        last_changed: serverTimestamp(),
+    }
+
+    const status = ref(realtimeDB, ".info/connected")
+    onValue(status, (snapshot) => {
+        if (snapshot.val() == false) {
+            return
+        }
+        onDisconnect(userStatusDatabaseRef)
+            .set(isOfflineForDatabase)
+            .then(() => {
+                set(userStatusDatabaseRef, isOnlineForDatabase)
+            })
     })
 }

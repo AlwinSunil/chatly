@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { UserChatSessionsContext } from "../../../context/UserChatSessionsContext"
 import { UserIdContext } from "../../../context/UserIdContext"
@@ -9,13 +9,10 @@ function Chats() {
     const [userId] = useContext(UserIdContext)
 
     useEffect(() => {
-        if (userId) {
-            console.log("User id : ", userId)
-            if (userChatSessions) {
-                console.log("User sessions : ", userChatSessions)
-            }
+        if (userChatSessions) {
+            console.log("User sessions : ", userChatSessions)
         }
-    }, [userId, userChatSessions])
+    }, [userChatSessions])
 
     return (
         <div className={styles.chats}>

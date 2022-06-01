@@ -6,7 +6,7 @@ import { UserIdContext } from "../../context/UserIdContext"
 import Header from "../../components/Chat/Header"
 import Input from "../../components/Chat/Input"
 import Messages from "../../components/Chat/Messages"
-import { db } from "../../firebase"
+import { firestoreDB } from "../../firebase"
 import styles from "./Chat.module.scss"
 
 export default function Chat() {
@@ -33,7 +33,7 @@ export default function Chat() {
     }, [userId, chatMessages])
 
     useEffect(() => {
-        onSnapshot(doc(db, "sessions", id), (doc) => {
+        onSnapshot(doc(firestoreDB, "sessions", id), (doc) => {
             setChatMessages(doc.data())
         })
     }, [])

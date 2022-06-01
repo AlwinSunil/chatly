@@ -7,6 +7,7 @@ import { UserProfileContext } from "./context/UserProfileContext"
 import Loading from "./components/Loading/Loading"
 import GuestRoutes from "./routes/GuestRoutes"
 import LoggedInRoutes from "./routes/LoggedInRoutes"
+import { updateUserStatus } from "./firebase"
 import styles from "./App.module.scss"
 
 function App() {
@@ -30,6 +31,12 @@ function App() {
             }
         })
     }, [])
+
+    useEffect(() => {
+        if (userId) {
+            updateUserStatus(userId)
+        }
+    }, [userId])
 
     if (userLoggedIn === true) {
         return (

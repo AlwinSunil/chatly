@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom"
 import { doc, onSnapshot } from "firebase/firestore"
 import { UserChatSessionsContext } from "../context/UserChatSessionsContext"
 import { UserIdContext } from "../context/UserIdContext"
-import { db } from "../firebase"
+import { firestoreDB } from "../firebase"
 import Chat from "../pages/Chat"
 import Home from "../pages/Home"
 import NewMessage from "../pages/NewMessage"
@@ -18,7 +18,7 @@ function LoggedInRoutes() {
         document.getElementById("root").firstChild.style["boxShadow"] =
             "var(--shadow-app)"
         if (userId) {
-            onSnapshot(doc(db, "users", userId), (doc) => {
+            onSnapshot(doc(firestoreDB, "users", userId), (doc) => {
                 setUserChatSessions(doc.data())
             })
         }

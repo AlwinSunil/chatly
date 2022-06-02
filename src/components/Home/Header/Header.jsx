@@ -6,12 +6,6 @@ import styles from "./Header.module.scss"
 function Header() {
     const [userProfileData] = useContext(UserProfileContext)
 
-    useEffect(() => {
-        if (userProfileData) {
-            console.log(userProfileData)
-        }
-    }, [userProfileData])
-
     return (
         <div className={styles.header}>
             <div className={styles.nav}>

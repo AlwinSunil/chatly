@@ -19,8 +19,7 @@ export default function Chat() {
     useEffect(() => {
         const messagesDialog = document.getElementById("messages__dialog")
         messagesDialog.scrollTop = messagesDialog.scrollHeight + 100
-        console.log(userId)
-        if (chatMessages) {
+        if (chatMessages && userId) {
             console.log(chatMessages)
             if (userId == chatMessages.initial.uid) {
                 setToProfileDetails(chatMessages.recevier)

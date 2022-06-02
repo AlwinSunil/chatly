@@ -18,8 +18,8 @@
         & img {
             width: 2.75rem;
             height: 2.75rem;
+            border: 1px solid rgba(0, 0, 0, 0.125);
             border-radius: 50%;
-            box-shadow: var(--shadow-profile);
         }
 
         &:hover {

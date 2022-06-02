@@ -1,20 +1,20 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
-import "./Navigation.scss"
+import styles from "./Navigation.module.scss"
 
 function Navigation(props) {
     let navigate = useNavigate()
 
     return (
-        <div className="navigation">
-            <div className="navigation__container">
+        <div className={styles.navigation}>
+            <div className={styles.container}>
                 <div
-                    className="btn navigation__goback"
+                    className={`${styles.navigateback} btn`}
                     onClick={() => navigate(-1)}
                 >
                     <img src="/assets/icons/back.svg" alt="" />
                 </div>
-                <div className="navigation__header">
+                <div className={styles.header}>
                     <p>{props.header}</p>
                 </div>
             </div>

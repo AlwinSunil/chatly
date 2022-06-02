@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
 import { doc, onSnapshot } from "firebase/firestore"
 import { UserChatSessionsContext } from "../context/UserChatSessionsContext"
@@ -20,6 +20,7 @@ function LoggedInRoutes() {
         if (userId) {
             onSnapshot(doc(firestoreDB, "users", userId), (doc) => {
                 setUserChatSessions(doc.data())
+                console.log("User sessions : ", doc.data())
             })
         }
         document.title = "Chatly"

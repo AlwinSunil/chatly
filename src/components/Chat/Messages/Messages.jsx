@@ -1,25 +1,16 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import { ChatMessagesContext } from "../../../context/ChatMessagesContext"
 import { UserIdContext } from "../../../context/UserIdContext"
 import styles from "./Messages.module.scss"
 
-function Messages(props) {
-    const sessionId = props.id
-
+function Messages() {
     const { chatMessages } = useContext(ChatMessagesContext)
 
     const [userId] = useContext(UserIdContext)
 
-    useEffect(() => {
-        console.log("Message Session : ", sessionId)
-        if (userId) {
-            console.log("Current User Id : ", userId)
-        }
-    }, [userId])
-
     return (
         <div className={styles.messages} id="messages__dialog">
-            {chatMessages && (
+            {chatMessages && userId && (
                 <>
                     {chatMessages.chat.map((item, i) => {
                         if (item.user == userId) {

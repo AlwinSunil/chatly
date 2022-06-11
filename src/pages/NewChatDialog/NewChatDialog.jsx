@@ -31,7 +31,7 @@ function NewChatDialog() {
                     <div className={styles.title}>Start conversation with</div>
                     <div className={styles.profile}>
                         <img
-                            src={`https://ui-avatars.com/api/?name=Alwin&background=random&color=random`}
+                            src={`https://ui-avatars.com/api/?name=Alwin&background=random`}
                             alt=""
                         />
                         <h4>Alwin</h4>

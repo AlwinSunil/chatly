@@ -12,7 +12,6 @@ function Signup() {
                 const credential =
                     GoogleAuthProvider.credentialFromResult(result)
                 const token = credential.accessToken
-                console.log(result.user)
                 console.log("Token :" + token)
             })
             .catch((error) => {
@@ -22,7 +21,6 @@ function Signup() {
                 console.log(error)
                 console.log(errorCode + " : " + errorMessage)
                 console.log("Credential : " + credential)
-                console.log(error.email)
             })
     }
 

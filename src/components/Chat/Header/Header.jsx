@@ -10,7 +10,7 @@ function Header(props) {
     return (
         <div className={styles.header}>
             <div className={`btn ${styles.back}`} onClick={() => navigate(-1)}>
-                <span className="material-symbols-rounded">arrow_back</span>
+                <img src="/assets/icons/back.svg" alt="" />
             </div>
             {toProfileDetails && (
                 <Link
@@ -19,7 +19,7 @@ function Header(props) {
                 >
                     <div className={styles.profile}>
                         <img
-                            src={`https://ui-avatars.com/api/?name=${toProfileDetails.name}&background=random&color=random`}
+                            src={`https://ui-avatars.com/api/?name=${toProfileDetails.name}&background=random`}
                             alt=""
                         />
                     </div>

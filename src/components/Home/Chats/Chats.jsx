@@ -23,7 +23,7 @@ function Chats() {
                                             key={session.id}
                                         >
                                             <img
-                                                src={`https://ui-avatars.com/api/?name=${session.receiver.name}&background=random&color=random`}
+                                                src={`https://ui-avatars.com/api/?name=${session.receiver.name}&background=random`}
                                                 alt=""
                                             />
                                             <div className={styles.info}>
@@ -40,7 +40,7 @@ function Chats() {
                                             key={session.id}
                                         >
                                             <img
-                                                src={`https://ui-avatars.com/api/?name=${session.initial.name}&background=random&color=random`}
+                                                src={`https://ui-avatars.com/api/?name=${session.initial.name}&background=random`}
                                                 alt=""
                                             />
                                             <div className={styles.info}>

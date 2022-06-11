@@ -1,4 +1,4 @@
-// Import the functions you need from the SDKs you need
+// import the functions you need from the SDKs you need
 import { getAnalytics } from "firebase/analytics"
 import { initializeApp } from "firebase/app"
 import {
@@ -17,7 +17,7 @@ import {
     updateDoc,
 } from "firebase/firestore"
 
-// Configuration
+// configuration
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_API_KEY,
     authDomain: import.meta.env.VITE_AUTH_DOMAIN,
@@ -28,14 +28,14 @@ const firebaseConfig = {
     measurementId: import.meta.env.VITE_MEASUREMENT_ID,
 }
 
-// Initialize firebase
+// initialize firebase
 const app = initializeApp(firebaseConfig)
 getAnalytics(app)
 
 export const realtimeDB = getDatabase(app)
 export const firestoreDB = getFirestore(app)
 
-// Handle sending message
+// handle sending message
 export async function sendMessage(data, sessionId) {
     const docRef = doc(firestoreDB, "sessions", sessionId)
     await updateDoc(docRef, {
@@ -43,14 +43,14 @@ export async function sendMessage(data, sessionId) {
     })
 }
 
-// Retrieving user sessions
+// retrieving user sessions
 export async function getUserSessions(uid) {
     onSnapshot(doc(firestoreDB, "users", uid), (doc) => {
         return doc.data()
     })
 }
 
-// Updating user status
+// updating user status
 export function updateUserStatus(uid) {
     var userStatusDatabaseRef = ref(realtimeDB, "/status/" + uid)
 

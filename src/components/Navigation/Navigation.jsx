@@ -12,8 +12,7 @@ function Navigation(props) {
                     className={`${styles.navigateback} btn`}
                     onClick={() => navigate(-1)}
                 >
-                    <span className="material-symbols-rounded">arrow_back</span>
-                    {/* <img src="/assets/icons/back.svg" alt="" /> */}
+                    <img src="/assets/icons/back.svg" alt="" />
                 </div>
                 <div className={styles.header}>
                     <p>{props.header}</p>

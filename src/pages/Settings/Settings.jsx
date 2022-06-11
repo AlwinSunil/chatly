@@ -14,7 +14,7 @@ function Profile() {
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
 
-    // Sign out user function
+    // sign out user function
     const signOutUser = () => {
         const auth = getAuth()
         signOut(auth)
@@ -33,13 +33,13 @@ function Profile() {
                         <div className={`${styles.card} menu`}>
                             <div className={styles.dp}>
                                 <img
-                                    src={`https://ui-avatars.com/api/?name=${userProfileData[1]}&background=random&color=random`}
+                                    src={`https://ui-avatars.com/api/?name=${userProfileData.displayName}&background=random`}
                                     alt=""
                                 />
                             </div>
                             <div className={styles.details}>
-                                <h3>{userProfileData[1]}</h3>
-                                <p>{userProfileData[0].email}</p>
+                                <h3>{userProfileData.displayName}</h3>
+                                <p>{userProfileData.email}</p>
                             </div>
                         </div>
                     </>
@@ -75,7 +75,7 @@ function Profile() {
                     </div>
                 </div>
                 <div className={styles.querycall} onClick={handleOpen}>
-                    <span class="material-symbols-rounded">info</span>
+                    <img src="/assets/icons/info.svg" alt="" />
                     <p>Messages are not encrypted.</p>
                 </div>
             </div>
@@ -90,7 +90,7 @@ function Profile() {
                 }}
             >
                 <div className={styles.modal}>
-                    <span class="material-symbols-rounded">info</span>
+                    <img src="/assets/icons/info.svg" alt="" />
                     <p>
                         This app is part of my web development portfolio. Chatly
                         is currently in beta and messages are not encrypted.

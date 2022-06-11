@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import { UserProfileContext } from "../../../context/UserProfileContext"
 import styles from "./Header.module.scss"
@@ -16,14 +16,14 @@ function Header() {
                 {userProfileData ? (
                     <Link to="/settings">
                         <img
-                            src={`https://ui-avatars.com/api/?name=${userProfileData[1]}&background=random&color=random`}
+                            src={`https://ui-avatars.com/api/?name=${userProfileData.displayName}&background=random`}
                             alt=""
                         />
                     </Link>
                 ) : (
                     <Link to="/settings">
                         <img
-                            src={`https://ui-avatars.com/api/?name=User&background=random&color=random`}
+                            src={`https://ui-avatars.com/api/?name=User&background=random`}
                             alt=""
                         />
                     </Link>

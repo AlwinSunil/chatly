@@ -46,12 +46,8 @@ function NewMessage() {
                     onChange={handleChange}
                     placeholder="Search email"
                 />
-                <div>
-                    <span
-                        className={`material-symbols-rounded ${styles.search}`}
-                    >
-                        search
-                    </span>
+                <div className={styles.search}>
+                    <img src="/assets/icons/search.svg" alt="" />
                 </div>
             </form>
             <div className={styles.results}>
@@ -64,7 +60,7 @@ function NewMessage() {
                                 to={`/newchat=${userData.item.uid}`}
                             >
                                 <img
-                                    src={`https://ui-avatars.com/api/?name=${userData.item.name}&background=random&color=random`}
+                                    src={`https://ui-avatars.com/api/?name=${userData.item.name}&background=random`}
                                     alt=""
                                 />
                                 <div className={styles.info}>

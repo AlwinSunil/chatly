@@ -106,12 +106,12 @@
         cursor: pointer;
     }
 
-    & span {
+    & img {
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 1.3rem;
         margin-right: 0.4rem;
-        font-size: 1.3rem;
     }
 
     & p {
@@ -141,9 +141,9 @@
     box-shadow: var(--shadow-modal);
     text-align: center;
 
-    & span {
+    & img {
+        width: 2rem;
         margin-bottom: 0.75rem;
-        font-size: 2rem;
     }
 
     & p {

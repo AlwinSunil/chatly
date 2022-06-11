@@ -45,7 +45,7 @@ export async function sendMessage(data, sessionId) {
 
 // Retrieving user sessions
 export async function getUserSessions(uid) {
-    onSnapshot(doc(db, "users", uid), (doc) => {
+    onSnapshot(doc(firestoreDB, "users", uid), (doc) => {
         return doc.data()
     })
 }

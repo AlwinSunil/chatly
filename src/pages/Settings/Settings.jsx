@@ -75,7 +75,7 @@ function Profile() {
                     </div>
                 </div>
                 <div className={styles.querycall} onClick={handleOpen}>
-                    <img src="/assets/icons/info.svg" alt="" />
+                    <span class="material-symbols-rounded">info</span>
                     <p>Messages are not encrypted.</p>
                 </div>
             </div>
@@ -90,7 +90,7 @@ function Profile() {
                 }}
             >
                 <div className={styles.modal}>
-                    <img src="/assets/icons/info.svg" alt="" />
+                    <span class="material-symbols-rounded">info</span>
                     <p>
                         This app is part of my web development portfolio. Chatly
                         is currently in beta and messages are not encrypted.

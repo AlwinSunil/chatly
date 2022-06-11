@@ -91,10 +91,12 @@
 .querycall {
     display: flex;
     align-items: center;
+    align-items: center;
     margin: 1rem;
     margin-top: auto;
-    padding: 0.5rem 1rem;
-    border: 1.5px solid var(--color-element-hover);
+    padding: 0.6rem 1rem;
+    border: 1.2px solid var(--color-element-hover);
+    border-radius: 0.1rem;
     background-color: var(--color-background);
     font-size: 0.7rem;
     text-align: end;
@@ -104,13 +106,18 @@
         cursor: pointer;
     }
 
-    & img {
-        width: 1.25rem;
+    & span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-right: 0.4rem;
+        font-size: 1.3rem;
     }
 
     & p {
         margin: auto;
+        margin-top: auto;
+        margin-bottom: 0px;
         padding: 0px;
         font-size: 0.95rem;
     }
@@ -131,13 +138,12 @@
     padding: 3rem 2rem 4rem 2rem;
     border-radius: 0.1rem;
     background-color: var(--color-background);
-    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px,
-        rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+    box-shadow: var(--shadow-modal);
     text-align: center;
 
-    & img {
-        width: 2rem;
+    & span {
         margin-bottom: 0.75rem;
+        font-size: 2rem;
     }
 
     & p {

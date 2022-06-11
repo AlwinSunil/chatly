@@ -10,7 +10,7 @@ function Header(props) {
     return (
         <div className={styles.header}>
             <div className={`btn ${styles.back}`} onClick={() => navigate(-1)}>
-                <img src="/assets/icons/back.svg" alt="" />
+                <span className="material-symbols-rounded">arrow_back</span>
             </div>
             {toProfileDetails && (
                 <Link

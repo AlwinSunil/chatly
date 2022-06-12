@@ -39,7 +39,7 @@ function NewMessage() {
     return (
         <>
             <Navigation header="New message" />
-            <form className={styles.form}>
+            <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
                 <input
                     type="text"
                     value={searchDoc}

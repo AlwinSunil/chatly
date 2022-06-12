@@ -17,12 +17,12 @@ function useChatLogic() {
         if (chatMessages && userId) {
             console.log(chatMessages)
             if (userId == chatMessages.initial.uid) {
-                setToProfileDetails(chatMessages.recevier)
+                setToProfileDetails(chatMessages.receiver)
             } else {
                 setToProfileDetails(chatMessages.initial)
             }
             console.log("Chat Initialised : ", chatMessages.initial)
-            console.log("Initial recevier : ", chatMessages.recevier)
+            console.log("Initial receiver : ", chatMessages.receiver)
         }
     }, [userId, chatMessages])
 

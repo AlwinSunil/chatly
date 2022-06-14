@@ -1,3 +1,4 @@
+import Fuse from "fuse.js"
 import React, { useContext, useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import {
@@ -8,12 +9,14 @@ import {
     onSnapshot,
     updateDoc,
 } from "firebase/firestore"
+import { UserChatSessionsContext } from "../../context/UserChatSessionsContext"
 import { UserProfileContext } from "../../context/UserProfileContext"
 import { Modal } from "@mui/material"
 import { firestoreDB } from "../../firebase"
 import styles from "./NewChatDialog.module.scss"
 
 function NewChatDialog() {
+    const { userChatSessions } = useContext(UserChatSessionsContext)
     const [userProfileData] = useContext(UserProfileContext)
 
     let { uid } = useParams()
@@ -32,6 +35,17 @@ function NewChatDialog() {
             setreceiverData(doc.data().profile)
         })
     }, [])
+
+    useEffect(() => {
+        if (userChatSessions && receiverData) {
+            console.log(userChatSessions.sessions)
+            const fuse = new Fuse(userChatSessions.sessions, {
+                includeScore: true,
+                keys: ["initail.email", "receiver.email"],
+            })
+            console.log("Seach result", fuse.search(receiverData.email))
+        }
+    }, [userChatSessions, receiverData])
 
     useEffect(() => {
         if (open === false) {

@@ -1,5 +1,11 @@
 import React, { useContext, useEffect } from "react"
-import { doc, onSnapshot, setDoc } from "firebase/firestore"
+import {
+    arrayUnion,
+    doc,
+    onSnapshot,
+    setDoc,
+    updateDoc,
+} from "firebase/firestore"
 import { UserChatSessionsContext } from "../context/UserChatSessionsContext"
 import { UserIdContext } from "../context/UserIdContext"
 import { UserProfileContext } from "../context/UserProfileContext"
@@ -9,6 +15,17 @@ const useLoggedInLogic = () => {
     const { setUserChatSessions } = useContext(UserChatSessionsContext)
     const [userProfileData] = useContext(UserProfileContext)
     const [userId] = useContext(UserIdContext)
+
+    const newActiveUser = async () => {
+        const activeUserDocRef = doc(firestoreDB, "data", "activeUsers")
+        await updateDoc(activeUserDocRef, {
+            profiles: arrayUnion({
+                email: `${userProfileData.email}`,
+                name: `${userProfileData.displayName}`,
+                uid: `${userProfileData.uid}`,
+            }),
+        })
+    }
 
     useEffect(() => {
         document.getElementById("root").firstChild.style["boxShadow"] =
@@ -31,6 +48,7 @@ const useLoggedInLogic = () => {
                 console.log("User sessions : ", doc.data())
                 if (doc.data() == null) {
                     setDoc(userDocRef, newUserData)
+                    newActiveUser()
                 }
             })
         }

@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
-import { ChatMessagesContext } from "../../../context/ChatMessagesContext"
-import { UserIdContext } from "../../../context/UserIdContext"
+import { ChatMessagesContext } from "@context/ChatMessagesContext"
+import { UserIdContext } from "@context/UserIdContext"
 import styles from "./Messages.module.scss"
 
 function Messages() {

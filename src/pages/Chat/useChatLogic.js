@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { doc, onSnapshot } from "firebase/firestore"
-import { UserIdContext } from "../../context/UserIdContext"
-import { firestoreDB } from "../../firebase"
+import { UserIdContext } from "@context/UserIdContext"
+import { firestoreDB } from "~firebase"
 
 function useChatLogic() {
     const [chatMessages, setChatMessages] = useState()

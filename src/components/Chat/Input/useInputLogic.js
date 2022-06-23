@@ -1,7 +1,7 @@
 import validator from "validator"
 import React, { useContext, useState } from "react"
-import { UserIdContext } from "../../../context/UserIdContext"
-import { sendMessage } from "../../../firebase"
+import { UserIdContext } from "@context/UserIdContext"
+import { sendMessage } from "~firebase"
 
 function useInputLogic(sessionId) {
     const [messageDoc, setMessageDoc] = useState("")

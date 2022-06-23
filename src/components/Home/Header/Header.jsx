@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
-import { UserProfileContext } from "../../../context/UserProfileContext"
+import { UserProfileContext } from "@context/UserProfileContext"
 import styles from "./Header.module.scss"
 
 function Header() {

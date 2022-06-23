@@ -2,9 +2,9 @@ import Fuse from "fuse.js"
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { doc, onSnapshot } from "firebase/firestore"
-import Navigation from "../../components/Navigation"
-import NoContacts from "../../components/NoContacts"
-import { firestoreDB } from "../../firebase"
+import Navigation from "@components/Navigation"
+import NoContacts from "@components/NoContacts"
+import { firestoreDB } from "~firebase"
 import styles from "./NewMessage.module.scss"
 
 function NewMessage() {

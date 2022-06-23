@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
-import Login from "../pages/Login"
-import Signup from "../pages/Signup"
+import Login from "@pages/Login"
+import Signup from "@pages/Signup"
 import "../auth.scss"
 
 function GuestRoutes() {

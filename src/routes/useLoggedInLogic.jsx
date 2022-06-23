@@ -6,10 +6,10 @@ import {
     setDoc,
     updateDoc,
 } from "firebase/firestore"
-import { UserChatSessionsContext } from "../context/UserChatSessionsContext"
-import { UserIdContext } from "../context/UserIdContext"
-import { UserProfileContext } from "../context/UserProfileContext"
-import { firestoreDB } from "../firebase"
+import { UserChatSessionsContext } from "@context/UserChatSessionsContext"
+import { UserIdContext } from "@context/UserIdContext"
+import { UserProfileContext } from "@context/UserProfileContext"
+import { firestoreDB } from "~firebase"
 
 const useLoggedInLogic = () => {
     const { setUserChatSessions } = useContext(UserChatSessionsContext)

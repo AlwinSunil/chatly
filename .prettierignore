@@ -4,6 +4,7 @@ build
 coverage
 .vercel
 .next
+.vscode
 dist
 
 # Ignore all HTML files:

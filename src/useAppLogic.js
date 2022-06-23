@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { getAuth, onAuthStateChanged } from "firebase/auth"
-import { updateUserStatus } from "./firebase"
+import { updateUserStatus } from "~firebase"
 
 function useAppLogic() {
     const [userLoggedIn, setUserLoggedIn] = useState()

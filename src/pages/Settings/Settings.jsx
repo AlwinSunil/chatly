@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { getAuth, signOut } from "firebase/auth"
-import { UserProfileContext } from "../../context/UserProfileContext"
-import Navigation from "../../components/Navigation"
+import { UserProfileContext } from "@context/UserProfileContext"
+import Navigation from "@components/Navigation"
 import Modal from "@mui/material/Modal"
 import styles from "./Settings.module.scss"
 

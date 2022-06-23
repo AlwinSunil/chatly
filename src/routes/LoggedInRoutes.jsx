@@ -1,11 +1,11 @@
 import React from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
-import Chat from "../pages/Chat"
-import Home from "../pages/Home"
-import NewChatDialog from "../pages/NewChatDialog"
-import NewMessage from "../pages/NewMessage"
-import Settings from "../pages/Settings"
-import UserProfile from "../pages/UserProfile"
+import Chat from "@pages/Chat"
+import Home from "@pages/Home"
+import NewChatDialog from "@pages/NewChatDialog"
+import NewMessage from "@pages/NewMessage"
+import Settings from "@pages/Settings"
+import UserProfile from "@pages/UserProfile"
 import useLoggedInLogic from "./useLoggedInLogic"
 
 function LoggedInRoutes() {

@@ -9,10 +9,10 @@ import {
     onSnapshot,
     updateDoc,
 } from "firebase/firestore"
-import { UserChatSessionsContext } from "../../context/UserChatSessionsContext"
-import { UserProfileContext } from "../../context/UserProfileContext"
+import { UserChatSessionsContext } from "@context/UserChatSessionsContext"
+import { UserProfileContext } from "@context/UserProfileContext"
 import { Modal } from "@mui/material"
-import { firestoreDB } from "../../firebase"
+import { firestoreDB } from "~firebase"
 import styles from "./NewChatDialog.module.scss"
 
 function NewChatDialog() {

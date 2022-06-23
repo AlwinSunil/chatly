@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
-import { UserChatSessionsContext } from "../../../context/UserChatSessionsContext"
-import { UserIdContext } from "../../../context/UserIdContext"
+import { UserChatSessionsContext } from "@context/UserChatSessionsContext"
+import { UserIdContext } from "@context/UserIdContext"
 import styles from "./Chats.module.scss"
 
 function Chats() {

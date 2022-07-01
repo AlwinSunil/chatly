@@ -1,7 +1,8 @@
 import Fuse from "fuse.js"
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { doc, onSnapshot } from "firebase/firestore"
+import { UserProfileContext } from "@context/UserProfileContext"
 import Navigation from "@components/Navigation"
 import NoContacts from "@components/NoContacts"
 import { firestoreDB } from "~firebase"
@@ -11,6 +12,7 @@ function NewMessage() {
     const [activeUsers, setActiveUsers] = useState()
     const [searchDoc, setSearchDoc] = useState("")
     const [searchResult, setSearchResult] = useState()
+    const [userProfileData] = useContext(UserProfileContext)
 
     useEffect(() => {
         onSnapshot(doc(firestoreDB, "data", "activeUsers"), (doc) => {
@@ -27,7 +29,13 @@ function NewMessage() {
                 const fuse = new Fuse(activeUsers, {
                     keys: ["email"],
                 })
-                setSearchResult(fuse.search(searchDoc))
+                const result = fuse.search(searchDoc)
+                for (let index = 0; index < result.length; index++) {
+                    if (result[index].item.email === userProfileData.email) {
+                        delete result[index]
+                    }
+                }
+                setSearchResult(result)
             }
         }
     }, [searchDoc])

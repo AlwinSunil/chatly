@@ -18,7 +18,7 @@
     width: 3.75rem;
     height: 3.75rem;
     overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, 0.125);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
 
     & img {
@@ -90,7 +90,6 @@
 
 .querycall {
     display: flex;
-    align-items: center;
     align-items: center;
     margin: 1rem;
     margin-top: auto;

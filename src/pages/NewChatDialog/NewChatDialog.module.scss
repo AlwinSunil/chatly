@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 19rem;
     padding: 3rem 2.5rem;
     border-radius: 0.1rem;
     background-color: var(--color-background);
@@ -64,6 +65,12 @@
         border-radius: 2.5rem;
         background-color: var(--color-accent);
         color: var(--color-background);
+
+        &:disabled {
+            background-color: #eee;
+            color: #222;
+            filter: blur(1px);
+        }
     }
 
     &_back {

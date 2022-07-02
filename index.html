@@ -4,14 +4,30 @@
         <meta charset="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/assets/icons/logo.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://fonts.cdnfonts.com/css/sofia-pro"
+            rel="stylesheet"
+        />
+        <meta
+            name="description"
+            content="Chatly - Instant messenger. By alwinsunil.in as part of portfolio."
+        />
         <title>Chatly</title>
-        <link href="http://fonts.cdnfonts.com/css/sofia-pro" rel="stylesheet" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <link rel="manifest" href="src/manifest.json" />
+        <link rel="apple-touch-icon" href="/icons/apple-icon-180.png" />
+        <meta name="theme-color" content="#000000" />
+        <link rel="manifest" href="/manifest.json" />
     </head>
     <body>
         <div id="root"></div>
+        <script>
+            if ("serviceWorker" in navigator) {
+                window.addEventListener("load", function () {
+                    navigator.serviceWorker.register("/sw.js")
+                })
+            }
+        </script>
         <script type="module" src="/src/main.jsx"></script>
     </body>
 </html>

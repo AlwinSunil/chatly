@@ -44,11 +44,17 @@ const useLoggedInLogic = () => {
             }
 
             onSnapshot(userDocRef, (doc) => {
-                setUserChatSessions(doc.data())
                 console.log("User sessions : ", doc.data())
+                setUserChatSessions(doc.data())
                 if (doc.data() == null) {
-                    setDoc(userDocRef, newUserData)
-                    newActiveUser()
+                    const unsubVerifyDoc = onSnapshot(userDocRef, (res) => {
+                        setUserChatSessions(res.data())
+                        if (res.data() == null) {
+                            setDoc(userDocRef, newUserData)
+                            newActiveUser()
+                        }
+                    })
+                    unsubVerifyDoc()
                 }
             })
         }

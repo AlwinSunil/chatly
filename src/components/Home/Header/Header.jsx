@@ -16,7 +16,7 @@ function Header() {
                 {userProfileData ? (
                     <Link to="/settings">
                         <img
-                            src={`https://ui-avatars.com/api/?name=${userProfileData.displayName}&background=random`}
+                            src={`https://ui-avatars.com/api/?name=${userProfileData.displayName}&background=random&color=random`}
                             alt=""
                         />
                     </Link>

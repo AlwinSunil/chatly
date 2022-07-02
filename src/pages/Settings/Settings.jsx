@@ -33,7 +33,7 @@ function Profile() {
                         <div className={`${styles.card} menu`}>
                             <div className={styles.dp}>
                                 <img
-                                    src={`https://ui-avatars.com/api/?name=${userProfileData.displayName}&background=random`}
+                                    src={`https://ui-avatars.com/api/?name=${userProfileData.displayName}&background=random&color=random`}
                                     alt=""
                                 />
                             </div>

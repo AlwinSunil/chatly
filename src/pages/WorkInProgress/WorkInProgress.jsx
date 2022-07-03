@@ -10,8 +10,8 @@ function WorkInProgress() {
             <div className={styles.progress}>
                 <h2>Hey! Chatly is still in work in progress.</h2>
                 <p>
-                    Chatly is a personal project for my software portfolio. I
-                    still working on this project.
+                    Chatly is a personal project for my software development
+                    portfolio. I am currently, working on this project.
                 </p>
                 <div className={styles.img}>
                     <img src="/assets/img/portfolio.webp" alt="" />

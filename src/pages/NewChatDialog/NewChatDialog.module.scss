@@ -67,8 +67,8 @@
         color: var(--color-background);
 
         &:disabled {
-            background-color: #eee;
-            color: #222;
+            background-color: var(--color-element);
+            color: var(--color-btn-disabled);
             filter: blur(1px);
         }
     }

@@ -27,11 +27,11 @@
         background-color: var(--color-active);
 
         &:enabled {
-            border: 1px solid #0457e7;
+            border: 1px solid var(--color-btn-accent);
             background-color: var(--color-accent);
 
             &:hover {
-                background-color: #0457e7;
+                background-color: var(--color-btn-accent);
                 cursor: pointer;
             }
 

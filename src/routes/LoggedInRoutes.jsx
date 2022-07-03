@@ -1,11 +1,12 @@
 import React from "react"
-import { Navigate, Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import Chat from "@pages/Chat"
 import Home from "@pages/Home"
 import NewChatDialog from "@pages/NewChatDialog"
 import NewMessage from "@pages/NewMessage"
 import Settings from "@pages/Settings"
 import UserProfile from "@pages/UserProfile"
+import WorkInProgress from "@pages/WorkInProgress"
 import useLoggedInLogic from "./useLoggedInLogic"
 
 function LoggedInRoutes() {
@@ -18,8 +19,9 @@ function LoggedInRoutes() {
             <Route path="/newmessage" element={<NewMessage />} />
             <Route path="/newchat=:uid" element={<NewChatDialog />} />
             <Route path="/session=:id" element={<Chat />} />
-            <Route path="/user=:id" element={<UserProfile />} />
-            <Route path="*" element={<Navigate to="/" />} />
+            {/* <Route path="/user=:id" element={<UserProfile />} /> */}
+            <Route path="/updateprofile" element={<WorkInProgress />} />
+            <Route path="*" element={<WorkInProgress />} />
         </Routes>
     )
 }

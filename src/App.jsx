@@ -1,4 +1,5 @@
 import React from "react"
+import { InstallDeferredPromptContext } from "@context/InstallDeferredPromptContext"
 import { UserChatSessionsContext } from "@context/UserChatSessionsContext"
 import { UserIdContext } from "@context/UserIdContext"
 import { UserLoggedInContext } from "@context/UserLoggedInContext"
@@ -14,25 +15,33 @@ function App() {
         userProfileData,
         userChatSessions,
         setUserChatSessions,
+        installDeferredPrompt,
+        setInstallDeferredPrompt,
         userLoggedIn,
         userId,
     } = useAppLogic()
 
     if (userLoggedIn === true) {
         return (
-            <div className={styles.app}>
-                <UserProfileContext.Provider value={[userProfileData]}>
-                    <UserChatSessionsContext.Provider
-                        value={{ userChatSessions, setUserChatSessions }}
-                    >
-                        <UserLoggedInContext.Provider value={[userLoggedIn]}>
-                            <UserIdContext.Provider value={[userId]}>
-                                <LoggedInRoutes />
-                            </UserIdContext.Provider>
-                        </UserLoggedInContext.Provider>
-                    </UserChatSessionsContext.Provider>
-                </UserProfileContext.Provider>
-            </div>
+            <InstallDeferredPromptContext.Provider
+                value={{ installDeferredPrompt, setInstallDeferredPrompt }}
+            >
+                <div className={styles.app}>
+                    <UserProfileContext.Provider value={[userProfileData]}>
+                        <UserChatSessionsContext.Provider
+                            value={{ userChatSessions, setUserChatSessions }}
+                        >
+                            <UserLoggedInContext.Provider
+                                value={[userLoggedIn]}
+                            >
+                                <UserIdContext.Provider value={[userId]}>
+                                    <LoggedInRoutes />
+                                </UserIdContext.Provider>
+                            </UserLoggedInContext.Provider>
+                        </UserChatSessionsContext.Provider>
+                    </UserProfileContext.Provider>
+                </div>
+            </InstallDeferredPromptContext.Provider>
         )
     } else if (userLoggedIn === false) {
         return (

@@ -1,6 +1,7 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { getAuth, signOut } from "firebase/auth"
+import { InstallDeferredPromptContext } from "@context/InstallDeferredPromptContext"
 import { UserProfileContext } from "@context/UserProfileContext"
 import Navigation from "@components/Navigation"
 import Modal from "@mui/material/Modal"
@@ -8,8 +9,13 @@ import styles from "./Settings.module.scss"
 
 function Profile() {
     const [userProfileData] = useContext(UserProfileContext)
+    const { installDeferredPrompt } = useContext(InstallDeferredPromptContext)
+    const { setInstallDeferredPrompt } = useContext(
+        InstallDeferredPromptContext
+    )
 
     const [open, setOpen] = useState(false)
+    const [installAction, setInstallAction] = useState()
 
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
@@ -22,6 +28,13 @@ function Profile() {
             .catch((error) => {
                 console.log(error)
             })
+    }
+
+    const handleInstallPWA = async () => {
+        installDeferredPrompt.prompt()
+        const { outcome } = await installDeferredPrompt.userChoice
+        console.log(`User response to the install prompt: ${outcome}`)
+        setInstallDeferredPrompt(null)
     }
 
     return (
@@ -69,11 +82,16 @@ function Profile() {
                         <p className={styles.version}>1.0.0</p>
                     </div>
                 </div>
-                <div className={styles.settings}>
-                    <div className={`${styles.settingsBtn} menu`}>
-                        <p>Install App</p>
+                {installDeferredPrompt && (
+                    <div className={styles.settings}>
+                        <div
+                            className={`${styles.settingsBtn} menu`}
+                            onClick={handleInstallPWA}
+                        >
+                            <p>Install App</p>
+                        </div>
                     </div>
-                </div>
+                )}
                 <div className={styles.querycall} onClick={handleOpen}>
                     <img src="/assets/icons/info.svg" alt="" />
                     <p>Messages are not encrypted.</p>

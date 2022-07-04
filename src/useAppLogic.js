@@ -3,12 +3,18 @@ import { getAuth, onAuthStateChanged } from "firebase/auth"
 import { updateUserStatus } from "~firebase"
 
 function useAppLogic() {
+    const [installDeferredPrompt, setInstallDeferredPrompt] = useState()
     const [userLoggedIn, setUserLoggedIn] = useState()
     const [userProfileData, setUserProfileData] = useState()
     const [userChatSessions, setUserChatSessions] = useState()
     const [userId, setUserId] = useState()
 
     useEffect(() => {
+        window.addEventListener("beforeinstallprompt", (e) => {
+            console.log(`'beforeinstallprompt' event was fired.`)
+            setInstallDeferredPrompt(e)
+            e.preventDefault()
+        })
         const auth = getAuth()
         onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -39,6 +45,8 @@ function useAppLogic() {
         userProfileData,
         userChatSessions,
         setUserChatSessions,
+        installDeferredPrompt,
+        setInstallDeferredPrompt,
         userLoggedIn,
         userId,
     }

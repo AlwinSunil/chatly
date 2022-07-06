@@ -64,32 +64,39 @@ function useChatDialogLogic() {
         }
     }, [open, success])
 
-    useEffect(async () => {
-        if (newSessionId) {
-            const newsessionPayload = {
-                id: `${newSessionId}`,
-                initial: {
-                    email: `${userProfileData.email}`,
-                    uid: `${userProfileData.uid}`,
-                    name: `${userProfileData.displayName}`,
-                },
-                receiver: {
-                    email: `${receiverData.email}`,
-                    uid: `${receiverData.uid}`,
-                    name: `${receiverData.name}`,
-                },
+    useEffect(() => {
+        async function setNewSession() {
+            if (newSessionId) {
+                const newsessionPayload = {
+                    id: `${newSessionId}`,
+                    initial: {
+                        email: `${userProfileData.email}`,
+                        uid: `${userProfileData.uid}`,
+                        name: `${userProfileData.displayName}`,
+                    },
+                    receiver: {
+                        email: `${receiverData.email}`,
+                        uid: `${receiverData.uid}`,
+                        name: `${receiverData.name}`,
+                    },
+                }
+                console.log(newsessionPayload)
+                const initialRef = doc(
+                    firestoreDB,
+                    "users",
+                    userProfileData.uid
+                )
+                await updateDoc(initialRef, {
+                    sessions: arrayUnion(newsessionPayload),
+                })
+                const receiverRef = doc(firestoreDB, "users", receiverData.uid)
+                await updateDoc(receiverRef, {
+                    sessions: arrayUnion(newsessionPayload),
+                })
+                setSuccess(true)
             }
-            console.log(newsessionPayload)
-            const initialRef = doc(firestoreDB, "users", userProfileData.uid)
-            await updateDoc(initialRef, {
-                sessions: arrayUnion(newsessionPayload),
-            })
-            const receiverRef = doc(firestoreDB, "users", receiverData.uid)
-            await updateDoc(receiverRef, {
-                sessions: arrayUnion(newsessionPayload),
-            })
-            setSuccess(true)
         }
+        setNewSession()
     }, [newSessionId])
 
     const initiateNewSession = async () => {

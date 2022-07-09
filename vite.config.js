@@ -17,6 +17,7 @@ export default defineConfig({
     },
     plugins: [babel(), reactRefresh()],
     server: {
+        hmr: { clientPort: process.env.CODESPACES ? 443 : undefined },
         host: true,
     },
 })

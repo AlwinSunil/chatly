@@ -1,5 +1,5 @@
 import React from "react"
-import { Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes } from "react-router-dom"
 import Chat from "@pages/Chat"
 import Home from "@pages/Home"
 import NewChatDialog from "@pages/NewChatDialog"
@@ -21,6 +21,8 @@ function LoggedInRoutes() {
             <Route path="/session=:id" element={<Chat />} />
             {/* <Route path="/user=:id" element={<UserProfile />} /> */}
             <Route path="/updateprofile" element={<WorkInProgress />} />
+            <Route path="/login" element={<Navigate to="/" />} />
+            <Route path="/signup" element={<Navigate to="/" />} />
             <Route path="*" element={<WorkInProgress />} />
         </Routes>
     )

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { getAuth, signOut } from "firebase/auth"
 import { AppInstalledContext } from "@context/AppInstalledContext"

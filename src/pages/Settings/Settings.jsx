@@ -82,15 +82,19 @@ function Profile() {
                         <p className={styles.version}>1.0.0</p>
                     </div>
                 </div>
-                {!isAppInstalled && (
-                    <div className={styles.settings}>
-                        <div
-                            className={`${styles.settingsBtn} menu`}
-                            onClick={handleInstallPWA}
-                        >
-                            <p>Install App</p>
-                        </div>
-                    </div>
+                {installDeferredPrompt && (
+                    <>
+                        {!isAppInstalled && (
+                            <div className={styles.settings}>
+                                <div
+                                    className={`${styles.settingsBtn} menu`}
+                                    onClick={handleInstallPWA}
+                                >
+                                    <p>Install App</p>
+                                </div>
+                            </div>
+                        )}
+                    </>
                 )}
                 <div className={styles.querycall} onClick={handleOpen}>
                     <img src="/assets/icons/info.svg" alt="" />

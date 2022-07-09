@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { getAuth, signOut } from "firebase/auth"
+import { AppInstalledContext } from "@context/AppInstalledContext"
 import { InstallDeferredPromptContext } from "@context/InstallDeferredPromptContext"
 import { UserProfileContext } from "@context/UserProfileContext"
 import Navigation from "@components/Navigation"
@@ -9,13 +10,12 @@ import styles from "./Settings.module.scss"
 
 function Profile() {
     const [userProfileData] = useContext(UserProfileContext)
-    const { installDeferredPrompt } = useContext(InstallDeferredPromptContext)
-    const { setInstallDeferredPrompt } = useContext(
+    const { installDeferredPrompt, setInstallDeferredPrompt } = useContext(
         InstallDeferredPromptContext
     )
+    const [isAppInstalled] = useContext(AppInstalledContext)
 
     const [open, setOpen] = useState(false)
-    const [installAction, setInstallAction] = useState()
 
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
@@ -82,7 +82,7 @@ function Profile() {
                         <p className={styles.version}>1.0.0</p>
                     </div>
                 </div>
-                {installDeferredPrompt && (
+                {!isAppInstalled && (
                     <div className={styles.settings}>
                         <div
                             className={`${styles.settingsBtn} menu`}

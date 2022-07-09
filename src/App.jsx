@@ -1,13 +1,9 @@
 import React from "react"
-import { InstallDeferredPromptContext } from "@context/InstallDeferredPromptContext"
-import { UserChatSessionsContext } from "@context/UserChatSessionsContext"
-import { UserIdContext } from "@context/UserIdContext"
-import { UserLoggedInContext } from "@context/UserLoggedInContext"
-import { UserProfileContext } from "@context/UserProfileContext"
 import Loading from "@components/Loading"
 import GuestRoutes from "@routes/GuestRoutes"
 import LoggedInRoutes from "@routes/LoggedInRoutes"
 import styles from "./App.module.scss"
+import AppContextHandling from "./AppContextHandling"
 import useAppLogic from "./useAppLogic"
 
 function App() {
@@ -17,31 +13,29 @@ function App() {
         setUserChatSessions,
         installDeferredPrompt,
         setInstallDeferredPrompt,
+        isAppInstalled,
         userLoggedIn,
         userId,
     } = useAppLogic()
 
     if (userLoggedIn === true) {
         return (
-            <InstallDeferredPromptContext.Provider
-                value={{ installDeferredPrompt, setInstallDeferredPrompt }}
-            >
-                <div className={styles.app}>
-                    <UserProfileContext.Provider value={[userProfileData]}>
-                        <UserChatSessionsContext.Provider
-                            value={{ userChatSessions, setUserChatSessions }}
-                        >
-                            <UserLoggedInContext.Provider
-                                value={[userLoggedIn]}
-                            >
-                                <UserIdContext.Provider value={[userId]}>
-                                    <LoggedInRoutes />
-                                </UserIdContext.Provider>
-                            </UserLoggedInContext.Provider>
-                        </UserChatSessionsContext.Provider>
-                    </UserProfileContext.Provider>
-                </div>
-            </InstallDeferredPromptContext.Provider>
+            <div className={styles.app}>
+                <AppContextHandling
+                    data={{
+                        userProfileData,
+                        userChatSessions,
+                        setUserChatSessions,
+                        installDeferredPrompt,
+                        setInstallDeferredPrompt,
+                        isAppInstalled,
+                        userLoggedIn,
+                        userId,
+                    }}
+                >
+                    <LoggedInRoutes />
+                </AppContextHandling>
+            </div>
         )
     } else if (userLoggedIn === false) {
         return (

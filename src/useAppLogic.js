@@ -4,6 +4,7 @@ import { updateUserStatus } from "~firebase"
 
 function useAppLogic() {
     const [installDeferredPrompt, setInstallDeferredPrompt] = useState()
+    const [isAppInstalled, setIsAppInstalled] = useState(false)
     const [userLoggedIn, setUserLoggedIn] = useState()
     const [userProfileData, setUserProfileData] = useState()
     const [userChatSessions, setUserChatSessions] = useState()
@@ -14,6 +15,10 @@ function useAppLogic() {
             console.log(`'beforeinstallprompt' event was fired.`)
             setInstallDeferredPrompt(e)
             e.preventDefault()
+        })
+        window.addEventListener("appinstalled", () => {
+            console.log("PWA was installed")
+            setIsAppInstalled(true)
         })
         const auth = getAuth()
         onAuthStateChanged(auth, (user) => {
@@ -47,6 +52,7 @@ function useAppLogic() {
         setUserChatSessions,
         installDeferredPrompt,
         setInstallDeferredPrompt,
+        isAppInstalled,
         userLoggedIn,
         userId,
     }

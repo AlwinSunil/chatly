@@ -1,5 +1,5 @@
 import Fuse from "fuse.js"
-import React, { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import {
     addDoc,
@@ -39,18 +39,22 @@ function useChatDialogLogic() {
 
     useEffect(() => {
         if (userChatSessions && receiverData) {
-            const fuse = new Fuse(userChatSessions.sessions, {
-                includeScore: true,
-                keys: ["initail.email", "receiver.email"],
-            })
-            const res = fuse.search(receiverData.email)
-            if (
-                res[0].item.initial ||
-                res[0].item.receiver === receiverData.email
-            ) {
-                setActionPrompt("Continue chat")
-                setIsNewChat(false)
-                setSessionId(res[0].item.id)
+            if (userChatSessions.sessions.length !== 0) {
+                const fuse = new Fuse(userChatSessions.sessions, {
+                    includeScore: true,
+                    keys: ["initail.email", "receiver.email"],
+                })
+                const res = fuse.search(receiverData.email)
+
+                if (
+                    (res[0].item.initial.email ||
+                        res[0].item.receiver.email === receiverData.email) ===
+                    true
+                ) {
+                    setActionPrompt("Continue chat")
+                    setIsNewChat(false)
+                    setSessionId(res[0].item.id)
+                }
             }
         }
     }, [userChatSessions, receiverData])

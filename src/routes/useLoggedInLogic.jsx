@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import { useContext, useEffect } from "react"
 import {
     arrayUnion,
     doc,
@@ -46,15 +46,10 @@ const useLoggedInLogic = () => {
             onSnapshot(userDocRef, (doc) => {
                 console.log("User sessions : ", doc.data())
                 setUserChatSessions(doc.data())
-                if (doc.data() == null) {
-                    const unsubVerifyDoc = onSnapshot(userDocRef, (res) => {
-                        setUserChatSessions(res.data())
-                        if (res.data() == null) {
-                            setDoc(userDocRef, newUserData)
-                            newActiveUser()
-                        }
-                    })
-                    unsubVerifyDoc()
+                if (!doc.data()) {
+                    setUserChatSessions(doc.data())
+                    setDoc(userDocRef, newUserData)
+                    newActiveUser()
                 }
             })
         }

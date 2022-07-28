@@ -68,7 +68,7 @@ function NewMessage() {
                                 to={`/newchat=${userData.item.uid}`}
                             >
                                 <img
-                                    src={`https://ui-avatars.com/api/?name=${userData.item.name}&background=random`}
+                                    src={`https://avatars.dicebear.com/api/bottts/${userData.item.name}.svg`}
                                     alt=""
                                 />
                                 <div className={styles.info}>

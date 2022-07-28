@@ -27,7 +27,7 @@ function NewChatDialog() {
                     {receiverData ? (
                         <div className={styles.profile}>
                             <img
-                                src={`https://ui-avatars.com/api/?name=${receiverData.name}&background=random`}
+                                src={`https://avatars.dicebear.com/api/bottts/${receiverData.name}.svg`}
                                 alt=""
                             />
                             <h4>{receiverData.name}</h4>

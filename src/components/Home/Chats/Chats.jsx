@@ -14,6 +14,15 @@ function Chats() {
                 <>
                     {userChatSessions && (
                         <>
+                            {userChatSessions.sessions.length === 0 && (
+                                <div className={styles.prompt}>
+                                    <img src="https://img.icons8.com/fluency/96/000000/no-chat.png" />{" "}
+                                    <span>No chats yet.</span>
+                                    <span>
+                                        Get started by messaging a friend
+                                    </span>
+                                </div>
+                            )}
                             {userChatSessions.sessions.map((session) => {
                                 if (session.initial.uid == userId) {
                                     return (
@@ -23,12 +32,14 @@ function Chats() {
                                             key={session.id}
                                         >
                                             <img
-                                                src={`https://ui-avatars.com/api/?name=${session.receiver.name}&background=random`}
+                                                src={`https://avatars.dicebear.com/api/bottts/${session.receiver.name}.svg`}
                                                 alt=""
                                             />
                                             <div className={styles.info}>
                                                 <p>{session.receiver.name}</p>
-                                                <div>how u doing?</div>
+                                                <div>
+                                                    {session.receiver.email}
+                                                </div>
                                             </div>
                                         </Link>
                                     )
@@ -40,12 +51,14 @@ function Chats() {
                                             key={session.id}
                                         >
                                             <img
-                                                src={`https://ui-avatars.com/api/?name=${session.initial.name}&background=random`}
+                                                src={`https://avatars.dicebear.com/api/bottts/${session.initial.name}.svg`}
                                                 alt=""
                                             />
                                             <div className={styles.info}>
                                                 <p>{session.initial.name}</p>
-                                                <div>how u doing?</div>
+                                                <div>
+                                                    {session.initial.email}
+                                                </div>
                                             </div>
                                         </Link>
                                     )

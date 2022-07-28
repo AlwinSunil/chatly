@@ -16,7 +16,6 @@ import {
     onSnapshot,
     updateDoc,
 } from "firebase/firestore"
-import { getMessaging, onMessage } from "firebase/messaging"
 
 // configuration
 const firebaseConfig = {
@@ -78,8 +77,11 @@ export function updateUserStatus(uid) {
     })
 }
 
-const messaging = getMessaging()
-onMessage(messaging, (payload) => {
-    console.log("Message received. ", payload)
-    // ...
-})
+export function getUserStatus(userId) {
+    const lastSeen = ref(realtimeDB, "status/" + userId)
+    onValue(lastSeen, (snapshot) => {
+        const data = snapshot.val()
+        console.log(data)
+        return data
+    })
+}

@@ -1,5 +1,6 @@
 import React from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
+import About from "@pages/About"
 import Chat from "@pages/Chat"
 import Home from "@pages/Home"
 import NewChatDialog from "@pages/NewChatDialog"
@@ -19,10 +20,12 @@ function LoggedInRoutes() {
             <Route path="/newmessage" element={<NewMessage />} />
             <Route path="/newchat=:uid" element={<NewChatDialog />} />
             <Route path="/session=:id" element={<Chat />} />
+            <Route path="/about" element={<About />} />
             {/* <Route path="/user=:id" element={<UserProfile />} /> */}
             <Route path="/updateprofile" element={<WorkInProgress />} />
             <Route path="/login" element={<Navigate to="/" />} />
             <Route path="/signup" element={<Navigate to="/" />} />
+            <Route path="/index.html" element={<Navigate to="/" />} />
             <Route path="*" element={<WorkInProgress />} />
         </Routes>
     )

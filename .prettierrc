@@ -6,7 +6,6 @@
     "arrowParens": "always",
     "importOrder": [
         "react",
-        "axios",
         "^firebase/(.*)$",
         "^@context/(.*)$",
         "^@components/(.*)$",

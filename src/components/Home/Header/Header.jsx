@@ -16,14 +16,14 @@ function Header() {
                 {userProfileData ? (
                     <Link to="/settings">
                         <img
-                            src={`https://ui-avatars.com/api/?name=${userProfileData.displayName}&background=random&color=random`}
+                            src={`https://avatars.dicebear.com/api/bottts/${userProfileData.displayName}.svg`}
                             alt=""
                         />
                     </Link>
                 ) : (
                     <Link to="/settings">
                         <img
-                            src={`https://ui-avatars.com/api/?name=User&background=random`}
+                            src={`https://avatars.dicebear.com/api/bottts/users.svg`}
                             alt=""
                         />
                     </Link>

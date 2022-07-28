@@ -19,7 +19,7 @@ function Header(props) {
                 >
                     <div className={styles.profile}>
                         <img
-                            src={`https://ui-avatars.com/api/?name=${toProfileDetails.name}&background=random`}
+                            src={`https://avatars.dicebear.com/api/bottts/${toProfileDetails.name}.svg`}
                             alt=""
                         />
                     </div>

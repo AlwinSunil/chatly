@@ -13,6 +13,7 @@ export default defineConfig({
             "@routes": path.resolve(__dirname, "./src/routes"),
             "@pages": path.resolve(__dirname, "./src/pages"),
             "~firebase": path.resolve(__dirname, "./src/firebase"),
+            "@": path.resolve(__dirname, "./src"),
         },
     },
     plugins: [babel(), reactRefresh()],

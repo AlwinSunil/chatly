@@ -16,7 +16,7 @@ function Chats() {
                         <>
                             {userChatSessions.sessions.length === 0 && (
                                 <div className={styles.prompt}>
-                                    <img src="https://img.icons8.com/fluency/96/000000/no-chat.png" />{" "}
+                                    <img src="/assets/icons/no-chat.webp" />
                                     <span>No chats yet.</span>
                                     <span>
                                         Get started by messaging a friend

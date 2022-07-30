@@ -5,7 +5,7 @@ function NoContacts() {
     return (
         <div className={styles.nocontacts}>
             <div className={styles.container}>
-                <img src="https://img.icons8.com/fluency/96/000000/search-chat.png" />{" "}
+                <img src="/assets/icons/search-chat.webp" />
                 <p>
                     Search the username or email <br />
                     to send message

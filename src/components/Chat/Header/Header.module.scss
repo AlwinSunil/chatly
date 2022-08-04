@@ -16,8 +16,8 @@
     border-radius: 50%;
 
     & img {
-        width: 1.75rem;
-        height: 1.75rem;
+        width: 1.7rem;
+        height: 1.7rem;
     }
 }
 
@@ -45,7 +45,8 @@
 }
 
 .profile {
-    display: grid;
+    display: flex;
+    flex-direction: column;
 
     & img {
         width: 2.75rem;
@@ -57,10 +58,30 @@
     }
 }
 
+.online {
+    &::after {
+        content: "";
+        position: absolute;
+        top: 75%;
+        left: 75%;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background: limegreen;
+    }
+}
+
 .user {
-    margin-bottom: -0.25rem;
-    font-size: 1.2rem;
-    font-weight: 500;
+    & span {
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+    & p {
+        padding: 0px;
+        color: var(--color-text-p);
+        font-size: 0.9rem;
+    }
 }
 
 @media screen and (min-width: 512px) {

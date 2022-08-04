@@ -7,6 +7,7 @@ import NewChatDialog from "@pages/NewChatDialog"
 import NewMessage from "@pages/NewMessage"
 import Settings from "@pages/Settings"
 import UserProfile from "@pages/UserProfile"
+import VoiceCall from "@pages/VoiceCall/VoiceCall"
 import WorkInProgress from "@pages/WorkInProgress"
 import useLoggedInLogic from "./useLoggedInLogic"
 
@@ -20,6 +21,7 @@ function LoggedInRoutes() {
             <Route path="/newmessage" element={<NewMessage />} />
             <Route path="/newchat=:uid" element={<NewChatDialog />} />
             <Route path="/session=:id" element={<Chat />} />
+            {/* <Route path="/voice=:uid" element={<VoiceCall />} /> */}
             <Route path="/about" element={<About />} />
             {/* <Route path="/user=:id" element={<UserProfile />} /> */}
             <Route path="/updateprofile" element={<WorkInProgress />} />

@@ -1,7 +1,8 @@
 import React from "react"
 import styles from "./Loading.module.scss"
 
-function Loading() {
+function Loading(props) {
+    console.log(props)
     return (
         <div className={styles.loading}>
             <div className={styles.loading__fade}>
@@ -45,6 +46,7 @@ function Loading() {
                     className={`${styles.loading__circle13} ${styles.loading__circle}`}
                 ></div>
             </div>
+            {props.child}
         </div>
     )
 }

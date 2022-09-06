@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import { ChatMessagesContext } from "@context/ChatMessagesContext"
 import { UserIdContext } from "@context/UserIdContext"
 import styles from "./Messages.module.scss"
+import { renderData } from "./useMessagesLogic"
 
 function Messages() {
     const { chatMessages } = useContext(ChatMessagesContext)
@@ -19,7 +20,7 @@ function Messages() {
                                     <div
                                         className={styles.sender__message}
                                         dangerouslySetInnerHTML={{
-                                            __html: item.message,
+                                            __html: renderData(item.message),
                                         }}
                                     ></div>
                                 </div>
@@ -30,7 +31,7 @@ function Messages() {
                                     <div
                                         className={styles.receiver__message}
                                         dangerouslySetInnerHTML={{
-                                            __html: item.message,
+                                            __html: renderData(item.message),
                                         }}
                                     ></div>
                                 </div>

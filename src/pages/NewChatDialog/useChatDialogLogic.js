@@ -40,16 +40,15 @@ function useChatDialogLogic() {
     useEffect(() => {
         if (userChatSessions && receiverData) {
             if (userChatSessions.sessions.length !== 0) {
+                console.log("userChatSessions : ", userChatSessions.sessions)
                 const fuse = new Fuse(userChatSessions.sessions, {
                     includeScore: true,
                     keys: ["initail.email", "receiver.email"],
                 })
                 const res = fuse.search(receiverData.email)
-
                 if (
-                    (res[0].item.initial.email ||
-                        res[0].item.receiver.email === receiverData.email) ===
-                    true
+                    res[0].item.initial.email === receiverData.email ||
+                    res[0].item.receiver.email === receiverData.email
                 ) {
                     setActionPrompt("Continue chat")
                     setIsNewChat(false)

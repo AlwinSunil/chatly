@@ -34,19 +34,65 @@ function useInputLogic(sessionId) {
         if (messageDoc !== "") {
             if (checkOnlySpaces(messageDoc) != true) {
                 let contentPayload
+                let newMessageDoc = []
+                let messagePayloadType
+
                 if (isMessageDocLink(messageDoc) === true) {
-                    contentPayload = `<a href="${messageDoc}" target="_blank" rel="noopener noreferrer">${messageDoc}</a>`
+                    contentPayload = {
+                        type: "link/standalone",
+                        payload: `${messageDoc}`,
+                    }
                 } else {
-                    contentPayload = `${messageDoc}`
+                    let refMessageDoc = messageDoc.split(" ")
+
+                    for (let i = 0; i < refMessageDoc.length; i++) {
+                        if (validator.isURL(refMessageDoc[i])) {
+                            newMessageDoc.push({
+                                type: "link",
+                                content: refMessageDoc[i],
+                            })
+                        } else {
+                            newMessageDoc.push({
+                                type: "word",
+                                content: refMessageDoc[i],
+                            })
+                        }
+                    }
+
+                    for (let i = 0; i < newMessageDoc.length; i++) {
+                        if (newMessageDoc[i].type === "link") {
+                            messagePayloadType = "text/link"
+                        }
+                    }
+
+                    let textMessageDoc = []
+                    if (messagePayloadType !== "text/link") {
+                        for (let i = 0; i < newMessageDoc.length; i++) {
+                            textMessageDoc.push(newMessageDoc[i].content)
+                        }
+                        textMessageDoc = textMessageDoc.join(" ")
+                    }
+                    if (messagePayloadType !== "text/link") {
+                        contentPayload = {
+                            type: "text/standalone",
+                            payload: textMessageDoc,
+                        }
+                    } else {
+                        contentPayload = {
+                            type: `${messagePayloadType}`,
+                            payload: newMessageDoc,
+                        }
+                    }
                 }
 
-                console.log(contentPayload)
+                const data = {
+                    message: contentPayload,
+                    metadata: JSON.stringify(metatime()),
+                    user: userId,
+                }
 
-                const data = `{"message": ${JSON.stringify(contentPayload)},
-                "metadata": ${JSON.stringify(metatime())},
-                "user":${JSON.stringify(userId)}}`
-
-                const messagePayload = JSON.parse(data)
+                console.log(data)
+                const messagePayload = data
 
                 sendMessage(messagePayload, sessionId)
                 setMessageDoc("")

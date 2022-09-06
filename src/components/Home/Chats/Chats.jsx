@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import { UserChatSessionsContext } from "@context/UserChatSessionsContext"
 import { UserIdContext } from "@context/UserIdContext"
+import Loading from "@components/Loading"
 import styles from "./Chats.module.scss"
 
 function Chats() {
@@ -12,7 +13,7 @@ function Chats() {
         <div className={styles.chats}>
             {userId && (
                 <>
-                    {userChatSessions && (
+                    {userChatSessions ? (
                         <>
                             {userChatSessions.sessions.length === 0 && (
                                 <div className={styles.prompt}>
@@ -32,7 +33,7 @@ function Chats() {
                                             key={session.id}
                                         >
                                             <img
-                                                src={`https://avatars.dicebear.com/api/bottts/${session.receiver.name}.svg`}
+                                                src={`https://avatars.dicebear.com/api/initials/${session.receiver.name}.svg`}
                                                 alt=""
                                             />
                                             <div className={styles.info}>
@@ -51,7 +52,7 @@ function Chats() {
                                             key={session.id}
                                         >
                                             <img
-                                                src={`https://avatars.dicebear.com/api/bottts/${session.initial.name}.svg`}
+                                                src={`https://avatars.dicebear.com/api/initials/${session.initial.name}.svg`}
                                                 alt=""
                                             />
                                             <div className={styles.info}>
@@ -65,6 +66,10 @@ function Chats() {
                                 }
                             })}
                         </>
+                    ) : (
+                        <Loading
+                            child={<p>Please wait. Setting your account</p>}
+                        />
                     )}
                 </>
             )}

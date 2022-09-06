@@ -32,7 +32,7 @@ function VoiceCall() {
                     {receiverData ? (
                         <>
                             <img
-                                src={`https://avatars.dicebear.com/api/bottts/${receiverData.name}.svg`}
+                                src={`https://avatars.dicebear.com/api/initials/${receiverData.name}.svg`}
                                 alt=""
                             />
                             <h4>{receiverData.name}</h4>

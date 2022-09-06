@@ -1,6 +1,7 @@
 .messages {
     flex-direction: column;
     height: 100%;
+    padding: 0.5rem 0rem;
     overflow-y: scroll;
     background-color: var(--color-background);
 }
@@ -8,7 +9,7 @@
 .receiver {
     display: flex;
     flex-direction: column;
-    margin: 1rem;
+    padding: 0.5rem 1rem;
     gap: 0.5rem;
 
     &__dp {
@@ -46,7 +47,7 @@
 .sender {
     display: flex;
     flex-direction: column;
-    margin: 1rem;
+    padding: 0.5rem 1rem;
     gap: 0.5rem;
 
     &__dp {
@@ -69,6 +70,7 @@
         word-wrap: break-word;
 
         & a {
+            width: fit-content;
             color: var(--color-background);
             font-weight: 400;
             text-decoration: underline;

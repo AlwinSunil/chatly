@@ -1,11 +1,5 @@
-import { useContext, useEffect } from "react"
-import {
-    arrayUnion,
-    doc,
-    onSnapshot,
-    setDoc,
-    updateDoc,
-} from "firebase/firestore"
+import { useContext, useEffect, useState } from "react"
+import { doc, onSnapshot } from "firebase/firestore"
 import { UserChatSessionsContext } from "@context/UserChatSessionsContext"
 import { UserIdContext } from "@context/UserIdContext"
 import { UserProfileContext } from "@context/UserProfileContext"
@@ -16,16 +10,7 @@ const useLoggedInLogic = () => {
     const [userProfileData] = useContext(UserProfileContext)
     const [userId] = useContext(UserIdContext)
 
-    const newActiveUser = async () => {
-        const activeUserDocRef = doc(firestoreDB, "data", "activeUsers")
-        await updateDoc(activeUserDocRef, {
-            profiles: arrayUnion({
-                email: `${userProfileData.email}`,
-                name: `${userProfileData.displayName}`,
-                uid: `${userProfileData.uid}`,
-            }),
-        })
-    }
+    const [checkUserStatus, setCheckUserStatus] = useState()
 
     useEffect(() => {
         document.getElementById("root").firstChild.style["boxShadow"] =
@@ -34,27 +19,20 @@ const useLoggedInLogic = () => {
         if (userId && userProfileData) {
             const userDocRef = doc(firestoreDB, "users", userId)
 
-            const newUserData = {
-                profile: {
-                    email: `${userProfileData.email}`,
-                    name: `${userProfileData.displayName}`,
-                    uid: `${userProfileData.uid}`,
-                },
-                sessions: [],
-            }
-
             onSnapshot(userDocRef, (doc) => {
                 console.log("User sessions : ", doc.data())
                 setUserChatSessions(doc.data())
-                if (!doc.data()) {
-                    setUserChatSessions(doc.data())
-                    setDoc(userDocRef, newUserData)
-                    newActiveUser()
+                if (!doc.exists()) {
+                    fetch(
+                        `${
+                            import.meta.env.VITE_CHATLY_API
+                        }/checkUserStatus?uid=${userId}`
+                    ).then((res) => setCheckUserStatus(res.json()))
                 }
             })
         }
-
         document.title = "Chatly"
+        console.log(checkUserStatus)
     }, [userProfileData, userId])
 }
 

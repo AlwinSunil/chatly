@@ -1,0 +1,47 @@
+@font-face {
+    font-family: sofia pro;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Sofia Pro"),
+        url("/public/fonts/Sofia\ Pro\ Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: sofia pro;
+    font-style: normal;
+    font-weight: 300;
+    src: local("Sofia Pro"),
+        url("/public/fonts/Sofia\ Pro\ Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: sofia pro;
+    font-style: normal;
+    font-weight: 500;
+    src: local("Sofia Pro"),
+        url("/public/fonts/Sofia\ Pro\ Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: sofia pro;
+    font-style: normal;
+    font-weight: 600;
+    src: local("Sofia Pro"),
+        url("/public/fonts/Sofia\ Pro\ Semi\ Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: sofia pro;
+    font-style: normal;
+    font-weight: 700;
+    src: local("Sofia Pro"),
+        url("/public/fonts/Sofia\ Pro\ Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: sofia pro;
+    font-style: normal;
+    font-weight: 900;
+    src: local("Sofia Pro"),
+        url("/public/fonts/Sofia\ Pro\ Black.woff2") format("woff2");
+}

@@ -2,13 +2,13 @@
 
 ⚡ Use chatly to message your friends, family and loved ones.
 
-(Not really, but if enough people use it, I'll probably reach the free firebase limit😂. This project is part of my software development portfolio.)
+(Not really, but if enough people use it, I'll probably reach the free firebase limit. This project is part of my software development portfolio.)
 
 🌐 Live at [chatly.alwinsunil.in](https://chatly.alwinsunil.in/)
 
 ## Why?
 
-Hey, I am Alwin Sunil [(@alwinsunil)](https://github.com/AlwinSunil), a front-end developer. Started working on Chatly with the intention of building a top-notch chat application to advance my craft and build my portfolio.
+Hey, I am Alwin Sunil [(@alwinsunil)](https://github.com/AlwinSunil), a CS student and web developer. Started working on Chatly with the intention of building a top-notch chat application to advance my craft and build my portfolio.
 
 ## Contributing
 

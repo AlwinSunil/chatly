@@ -1,4 +1,10 @@
-.branding {
+.about {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.header {
     display: grid;
     margin: 0px 1.5rem;
     padding: 2rem 0px;
@@ -22,5 +28,41 @@
         padding: 0.25rem 0rem;
         color: var(--color-text-secondary);
         font-size: 0.95rem;
+    }
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.button {
+    display: block;
+    padding: 0.6rem 1.5rem;
+
+    & p {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.1rem;
+        font-weight: 400;
+
+        & span {
+            margin-top: 0.25rem;
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            text-decoration: underline;
+        }
+    }
+}
+
+.author {
+    display: flex;
+    justify-content: center;
+    margin: auto 1.5rem 1rem 1.5rem;
+    padding: 1rem 0px;
+
+    & a {
+        text-decoration: underline;
     }
 }

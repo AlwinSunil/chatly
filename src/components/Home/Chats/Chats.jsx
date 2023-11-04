@@ -33,7 +33,7 @@ function Chats() {
                                             key={session.id}
                                         >
                                             <img
-                                                src={`https://avatars.dicebear.com/api/initials/${session.receiver.name}.svg`}
+                                                src={`https://api.dicebear.com/7.x/initials/svg?seed=${session.receiver.name}`}
                                                 alt=""
                                             />
                                             <div className={styles.info}>
@@ -52,7 +52,7 @@ function Chats() {
                                             key={session.id}
                                         >
                                             <img
-                                                src={`https://avatars.dicebear.com/api/initials/${session.initial.name}.svg`}
+                                                src={`https://api.dicebear.com/7.x/initials/svg?seed=${session.initial.name}`}
                                                 alt=""
                                             />
                                             <div className={styles.info}>

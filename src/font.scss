@@ -4,6 +4,7 @@
     font-weight: 400;
     src: local("Sofia Pro"),
         url("/fonts/Sofia\ Pro\ Regular.woff2") format("woff2");
+    font-display: swap;
 }
 
 @font-face {
@@ -12,14 +13,16 @@
     font-weight: 300;
     src: local("Sofia Pro"),
         url("/fonts/Sofia\ Pro\ Light.woff2") format("woff2");
+    font-display: swap;
 }
 
 @font-face {
     font-family: sofia pro;
-    font-style: normal;
+    font-style: bold;
     font-weight: 500;
     src: local("Sofia Pro"),
         url("/fonts/Sofia\ Pro\ Medium.woff2") format("woff2");
+    font-display: swap;
 }
 
 @font-face {
@@ -28,6 +31,7 @@
     font-weight: 600;
     src: local("Sofia Pro"),
         url("/fonts/Sofia\ Pro\ Semi\ Bold.woff2") format("woff2");
+    font-display: swap;
 }
 
 @font-face {
@@ -36,6 +40,7 @@
     font-weight: 700;
     src: local("Sofia Pro"),
         url("/fonts/Sofia\ Pro\ Bold.woff2") format("woff2");
+    font-display: swap;
 }
 
 @font-face {
@@ -44,4 +49,5 @@
     font-weight: 900;
     src: local("Sofia Pro"),
         url("/fonts/Sofia\ Pro\ Black.woff2") format("woff2");
+    font-display: swap;
 }

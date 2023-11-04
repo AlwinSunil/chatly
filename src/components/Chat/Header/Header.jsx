@@ -44,7 +44,7 @@ function Header(props) {
                                             className={`${styles.profile} ${styles.online}`}
                                         >
                                             <img
-                                                src={`https://avatars.dicebear.com/api/initials/${toProfileDetails.name}.svg`}
+                                                src={`https://api.dicebear.com/7.x/initials/svg?seed=${toProfileDetails.name}`}
                                                 alt=""
                                             />
                                         </div>
@@ -59,7 +59,7 @@ function Header(props) {
                                             className={`${styles.profile} ${styles.profile}`}
                                         >
                                             <img
-                                                src={`https://avatars.dicebear.com/api/initials/${toProfileDetails.name}.svg`}
+                                                src={`https://api.dicebear.com/7.x/initials/svg?seed=${toProfileDetails.name}`}
                                                 alt=""
                                             />
                                         </div>

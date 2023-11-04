@@ -46,7 +46,7 @@ function Profile() {
                         <div className={`${styles.card} menu`}>
                             <div className={styles.dp}>
                                 <img
-                                    src={`https://avatars.dicebear.com/api/initials/${userProfileData.displayName}.svg`}
+                                    src={`https://api.dicebear.com/7.x/initials/svg?seed=${userProfileData.displayName}`}
                                     alt=""
                                 />
                             </div>

@@ -68,7 +68,7 @@ function NewMessage() {
                                 to={`/newchat=${userData.item.uid}`}
                             >
                                 <img
-                                    src={`https://avatars.dicebear.com/api/initials/${userData.item.name}.svg`}
+                                    src={`https://api.dicebear.com/7.x/initials/svg?seed=${userData.item.name}`}
                                     alt=""
                                 />
                                 <div className={styles.info}>

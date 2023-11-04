@@ -27,7 +27,7 @@ function NewChatDialog() {
                     {receiverData ? (
                         <div className={styles.profile}>
                             <img
-                                src={`https://avatars.dicebear.com/api/initials/${receiverData.name}.svg`}
+                                src={`https://api.dicebear.com/7.x/initials/svg?seed=${receiverData.name}`}
                                 alt=""
                             />
                             <h4>{receiverData.name}</h4>
